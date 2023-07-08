@@ -1,12 +1,14 @@
 import csv
 import os
+import pandas as pd
 
 from pytube import Playlist, YouTube
 # IMPORTS ABOVE
 
-NGO_NAME = "meghshala"
-URL_PLAYLIST = "https://www.youtube.com/playlist?list=PL3rEvTTL-Jm-eNrHFhEIZ6oMUjD1VDWzR"
-WRITE_PATH = f'outputs/{NGO_NAME}.csv'
+NGO_NAME = "avanti-sankalp"
+CHAP_NAME = "Is Matter Around Us Pure"
+URL_PLAYLIST = "https://www.youtube.com/playlist?list=PL3rEvTTL-Jm8DDylCrgqIhCLb9Nj7t68j"
+WRITE_PATH = f'outputs/{NGO_NAME}-{CHAP_NAME}.csv'
 
 def get_playlist_details(playlist_url: str):
   # Retrieve URLs of videos from playlist
@@ -47,6 +49,14 @@ def dicts_to_csv(dics_list, write_path):
 def main():
   dics_list = get_playlist_details(URL_PLAYLIST)
   dicts_to_csv(dics_list, WRITE_PATH)
+
+  df = pd.read_csv(WRITE_PATH)
+  df['lang'] = 'hindi'
+  df['grade'] = 9
+  df['subject'] = 'science'
+  df['chapter'] = CHAP_NAME
+
+  df.to_csv(WRITE_PATH)
 
 if __name__ == '__main__':
   main()
