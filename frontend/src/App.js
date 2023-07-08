@@ -1,8 +1,9 @@
-import React from 'react'
-import Form from './components/Form/Form'
+import React from 'react';
+import CardRow from '../src/components/Form/CardRow';
 const App = () => {
   return (
     <div>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       <Form/>
 =======
@@ -16,8 +17,11 @@ const App = () => {
     </BrowserRouter>
 
 >>>>>>> Stashed changes
+=======
+      <CardRow/>
+>>>>>>> Stashed changes
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
