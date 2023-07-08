@@ -5,10 +5,14 @@ import pandas as pd
 from pytube import Playlist, YouTube
 # IMPORTS ABOVE
 
-NGO_NAME = "avanti-sankalp"
-CHAP_NAME = "Is Matter Around Us Pure"
-URL_PLAYLIST = "https://www.youtube.com/playlist?list=PL3rEvTTL-Jm8DDylCrgqIhCLb9Nj7t68j"
+NGO_NAME = "MathsMadeSweet"
+CHAP_NAME = "Number System"
+URL_PLAYLIST = "https://www.youtube.com/watch?v=tvluAyfcpso&list=PLHaPJFpME9Y8C4BPbE869K57-6vwFL2D-"
 WRITE_PATH = f'outputs/{NGO_NAME}-{CHAP_NAME}.csv'
+LANG = 'tamil'
+GRADE = 8
+SUBJECT = 'mathematics'
+
 
 def get_playlist_details(playlist_url: str):
   # Retrieve URLs of videos from playlist
@@ -51,9 +55,9 @@ def main():
   dicts_to_csv(dics_list, WRITE_PATH)
 
   df = pd.read_csv(WRITE_PATH)
-  df['lang'] = 'hindi'
-  df['grade'] = 9
-  df['subject'] = 'science'
+  df['lang'] = LANG
+  df['grade'] = GRADE
+  df['subject'] = SUBJECT
   df['chapter'] = CHAP_NAME
 
   df.to_csv(WRITE_PATH)
