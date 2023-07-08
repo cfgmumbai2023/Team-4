@@ -1,39 +1,61 @@
-const mongoose=require('mongoose');
-
-const videoSchema=new mongoose.Schema({
-    url: { 
-        type: String, 
-        required: true, 
+const mongooose=require('mongoose');
+const videoSchema=new mongooose.Schema({
+    title:{
+        type:String,
+        required:true,
     },
-    title: { 
-        type: String, 
-        required: true, 
+    description:{
+        type:String,
     },
-    author: { 
-        type: String, 
-        required: true,  
+    author:{
+        type:String,
+        required:true,
     },
-    views: { 
-        type: String, 
-        required: true, 
+    views:{
+        type:Number,
     },
-    lang: { 
-        type: String, 
-        required: true, 
+    creator:{
+        type:mongooose.Schema.Types.ObjectId,
+        ref:"Creator",
     },
-    
-    grade: { 
-        type: String, 
-        required: true, 
+    url:{
+        type:String,
+        required:true,
     },
-    subject: { 
-        type: String, 
-        required: true, 
+    length:{
+        type:Number,
     },
-    chapter: { 
-        type: String, 
-        required: true, 
+    rating:{
+        type:mongooose.Schema.Types.ObjectId,
+        ref:"Rating",
     },
+    createdAt:{
+        type:Date,
+        default:Date.now(),
+        required:true,
+    },
+    tags:{
+        type:[String],
+    },
+    garde:{
+        type:String,
+        required:true,
+    },
+    subject:{
+        type:String,
+        required:true,
+    },
+    lang:{
+        type:String,
+        required:true,
+    },
+    chapter:{
+        type:String,
+        required:true,
+    },
+    approved:{
+        type:Boolean,
+        default:false,
+    }
 });
-
-module.exports=mongoose.model("Video",videoSchema);
+module.exports=mongooose.model("Video",videoSchema);
