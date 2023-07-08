@@ -16,4 +16,6 @@ router.post('/scholarship/create',createScholarship);
 router.post('/creater/video/create',createVideo);
 
 
+
+
 module.exports=router;
