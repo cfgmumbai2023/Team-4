@@ -23,7 +23,7 @@ const videoSchema=new mongooose.Schema({
         required:true,
     },
     length:{
-        type:Number,
+        type:String,
     },
     rating:{
         type:mongooose.Schema.Types.ObjectId,

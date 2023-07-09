@@ -20,7 +20,7 @@ const studentSchema=new mongoose.Schema({
     language:{
         type:String,
         required:true,
-        enum:["telugu",'hindi','english','tamil','urdu','marati','kannada','malayalam'],
+        enum:["telugu",'hindi','English','tamil','urdu','marati','kannada','malayalam'],
     },
     school:{
         type:String,
@@ -30,5 +30,11 @@ const studentSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    rating:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Rating",
+        }
+    ],
 });
 module.exports=mongoose.model("Student",studentSchema);

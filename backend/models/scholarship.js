@@ -9,7 +9,7 @@ const scholarshipSchema=new mongoose.Schema({
         required:true,
     },
     grade:{
-        type:[Number],
+        type:String,
     },
     deadline:{
         type:String,

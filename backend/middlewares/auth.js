@@ -27,6 +27,7 @@ exports.auth=async(req,res,next)=>{
 exports.isStudent=async(req,res,next)=>{
     try{
         const student=await Student.findById({_id:req.payload.id});
+        req.student=student;
         if(!student){
             return res.status(401).json({
                 success:true,
@@ -44,7 +45,26 @@ exports.isStudent=async(req,res,next)=>{
 exports.isCreator=async(req,res,next)=>{
     try{
         const creator=await Creator.findById({_id:req.payload.id});
+        req.creator=creator;
         if(!creator){
+            return res.status(401).json({
+                success:true,
+                message:"un-auothorized",
+                data:error.message,
+            })
+        }
+        next();
+    }
+    catch(error){
+        return res.status(500).json({success:false,message:error.message});
+    }  
+};
+
+exports.isModulator=async(req,res,next)=>{
+    try{
+        const modulator=await Modulator.findById({_id:req.payload.id});
+        req.modulator=modulator;
+        if(!modulator){
             return res.status(401).json({
                 success:true,
                 message:"un-auothorized",

@@ -58,5 +58,6 @@ dbConnect();
 const route=require('./routes/route');
 app.use('/jeet',route);
 
+app.listen(PORT,()=>{console.log("server is live on port no ",PORT);});
 app.listen(PORT,()=>{console.log("server is live on port no 3000");});
 >>>>>>> janmey-backend

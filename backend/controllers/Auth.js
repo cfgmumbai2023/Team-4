@@ -123,6 +123,7 @@ exports.studentLogIn=async(req,res)=>{
     }
 }
 
+
 exports.creatorSignUp=async(req,res)=>{
     try{
         const {name,email,password,contact,gender,channel}=req.body;
@@ -333,6 +334,46 @@ exports.modulatorLogIn=async(req,res)=>{
         }
     }
     catch(error){
+        res
+        .status(500)
+        .json({
+            success:false,
+            message:error.message,
+        })
+    }
+}
+
+exports.getStudent=async(req,res)=>{
+    try{
+        const student=req.student;
+        res
+        .status(200)
+        .json({
+            success:true,
+            message:"student fetched",
+            student:student,
+        })
+    }catch(error){
+        res
+        .status(500)
+        .json({
+            success:false,
+            message:error.message,
+        })
+    }
+}
+
+exports.getCreator=async(req,res)=>{
+    try{
+        const creator=req.creator;
+        res
+        .status(200)
+        .json({
+            success:true,
+            message:"student fetched",
+            creator:creator,
+        })
+    }catch(error){
         res
         .status(500)
         .json({
