@@ -21,11 +21,10 @@ const ContributorForm = () => {
     setFormData({...formData, [e.target.name]: e.target.value});
   }
 
-  const { loginInfo, updateLoginInfo, loginUser, loginError, isLoginLoading } =
-    useContext(AuthContext);
+  const { registerUser} = useContext(AuthContext);
 
   return (
-    <form onSubmit={loginUser}>
+    <form onSubmit={registerUser}>
     <MDBContainer fluid>
 
       <MDBCard className='text-black m-5' style={{borderRadius: '25px'}}>

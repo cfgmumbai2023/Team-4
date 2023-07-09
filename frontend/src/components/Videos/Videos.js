@@ -36,7 +36,7 @@ const App = () => {
     {
       "": 0,
       "url": "https://www.youtube.com/watch?v=7tBipMcSZ3c",
-      "title": "1. 9C02 भूमिका | Introduction",
+      "title": "0. 9C02 भूमिका | Introduction",
       "author": "Avanti Sankalp",
       "views": 44765,
       "lang": "hindi",

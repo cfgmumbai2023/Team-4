@@ -6,7 +6,7 @@ require('dotenv').config();
 app.use(express.json());
 app.use(cors());
 
-const PORT=process.env.PORT||5000;
+const PORT=process.env.PORT||8000;
 
 const dbConnect=require('./config/database');
 dbConnect();
@@ -14,4 +14,4 @@ dbConnect();
 const route=require('./routes/route');
 app.use('/jeet',route);
 
-app.listen(PORT,()=>{console.log("server is live on port no 5000");});
+app.listen(PORT,()=>{console.log("server is live on port no 8000");});
