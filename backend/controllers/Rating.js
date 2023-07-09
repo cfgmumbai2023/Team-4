@@ -4,8 +4,11 @@ const Student=require('../models/studentModel');
 
 exports.createRating=async(req,res)=>{
     try{
+        console.log("jh");
         const {rate,comment,video}=req.body;
+        console.log(rate,comment,video);
         const student=req.student;
+        console.log(student);
         const findVideo=await Video.findById({_id:video});
         console.log(findVideo);
         const rating=await Rating.create({rate,comment,video:findVideo._id,student:student._id});

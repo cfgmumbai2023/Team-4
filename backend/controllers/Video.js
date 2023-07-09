@@ -1,62 +1,5 @@
 const Video = require('../models/Video');
 
-exports.createVideo = async (req, res) => {
-  try {
-    const {
-      title,
-      description,
-      author,
-      views,
-      creator,
-      url,
-      length,
-      tags,
-      garde,
-      subject,
-      lang,
-      chapter,
-    } = req.body;
-    console.log(
-      title,
-      description,
-      author,
-      views,
-      creator,
-      url,
-      length,
-      tags,
-      garde,
-      subject,
-      lang,
-      chapter
-    );
-    const video = await Video.create({
-      title,
-      description,
-      author,
-      views,
-      creator,
-      url,
-      length,
-      tags,
-      garde,
-      subject,
-      lang,
-      chapter,
-    });
-    res.status(200).json({
-      success: true,
-      message: 'video created',
-      video,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-
 exports.searchVideo = async (req, res) => {
   const search = req.body.text;
 
@@ -77,12 +20,15 @@ exports.searchVideo = async (req, res) => {
     payload: filtered_videos,
   });
 };
+
 exports.createVideo=async(req,res)=>{
     try{
         const {title,description,author,views,url,length,tags,garde,subject,lang,chapter}=req.body;
+        console.log(title,description,author,views,url,length,tags,garde,subject,lang,chapter);
         const creator=req.creator;
-        console.log(title,description,author,views,creator,url,length,tags,garde,subject,lang,chapter);
+        console.log(creator);
         const video=await Video.create({title,description,author,views,creator:creator._id,url,length,tags,garde,subject,lang,chapter});
+        console.log(video);
         res.status(200).json({
             success:true,
             message:"video created",

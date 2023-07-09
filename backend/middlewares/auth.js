@@ -6,6 +6,7 @@ require('dotenv').config();
 exports.auth=async(req,res,next)=>{
     try{
         const token=await req.body.token;
+        console.log(token);
         if(!token){
             return res.status(401).json({success:false,message:"Token is missing"});
         }
@@ -27,14 +28,19 @@ exports.auth=async(req,res,next)=>{
 exports.isStudent=async(req,res,next)=>{
     try{
         const student=await Student.findById({_id:req.payload.id});
-        req.student=student;
+        console.log("hi");
+        console.log(student);
+        console.log("hi");
         if(!student){
             return res.status(401).json({
-                success:true,
+                success:false,
                 message:"un-auothorized",
                 data:error.message,
             })
         }
+        console.log("hi");
+        req.student=student;
+
         next();
     }
     catch(error){
@@ -48,7 +54,7 @@ exports.isCreator=async(req,res,next)=>{
         req.creator=creator;
         if(!creator){
             return res.status(401).json({
-                success:true,
+                success:false,
                 message:"un-auothorized",
                 data:error.message,
             })
@@ -66,7 +72,7 @@ exports.isModulator=async(req,res,next)=>{
         req.modulator=modulator;
         if(!modulator){
             return res.status(401).json({
-                success:true,
+                success:false,
                 message:"un-auothorized",
                 data:error.message,
             })
@@ -77,4 +83,3 @@ exports.isModulator=async(req,res,next)=>{
         return res.status(500).json({success:false,message:error.message});
     }  
 };
-
