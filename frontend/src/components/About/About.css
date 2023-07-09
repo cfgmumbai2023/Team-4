@@ -1,0 +1,28 @@
+.about-us-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .about-us-description {
+    margin-bottom: 10px;
+  }
+  
+  .team-section {
+    margin-top: 20px;
+  }
+  
+  .team-members {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .contact-section {
+    margin-top: 20px;
+  }
+  
+  .contact-section p {
+    margin-bottom: 5px;
+  }
+  
