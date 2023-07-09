@@ -98,7 +98,7 @@ const Cards = () => {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <a href="#" class="btn btn-primary">
+                <a href="/upload" class="btn btn-primary">
                   Check out
                 </a>
               </div>

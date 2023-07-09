@@ -27,4 +27,10 @@ router.get('/student/all/scholarship',getAllScholarship);
 router.get('/modulator/videos/pending',getPendingVideos);
 router.get('/videos/search', searchVideo);
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+
+
+module.exports=router;
+>>>>>>> 656f98dee9317d869fd0692a29d3ba51a299bf17
