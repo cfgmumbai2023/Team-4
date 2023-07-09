@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 import React, {useState} from 'react';
+=======
+import React from 'react';
+>>>>>>> Stashed changes
 import {
   MDBBtn,
   MDBContainer,
@@ -8,6 +12,7 @@ import {
   MDBCardBody,
   MDBCardImage,
   MDBInput,
+<<<<<<< Updated upstream
   MDBIcon
 }
 from 'mdb-react-ui-kit';
@@ -25,6 +30,15 @@ const ContributorForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+=======
+  MDBIcon,
+  MDBCheckbox
+}
+from 'mdb-react-ui-kit';
+
+function App() {
+  return (
+>>>>>>> Stashed changes
     <MDBContainer fluid>
 
       <MDBCard className='text-black m-5' style={{borderRadius: '25px'}}>
@@ -36,11 +50,16 @@ const ContributorForm = () => {
 
               <div className="d-flex flex-row align-items-center mb-4 ">
                 <MDBIcon fas icon="user me-3" size='lg'/>
+<<<<<<< Updated upstream
                 <MDBInput label='Title' name="title" type='text' value={formData.title} onChange={handleChange} className='w-100'/>
+=======
+                <MDBInput label='Your Name' id='form1' type='text' className='w-100'/>
+>>>>>>> Stashed changes
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4 ">
                 <MDBIcon fas icon="user me-3" size='lg'/>
+<<<<<<< Updated upstream
                 <MDBInput label='Description' name="description" type='text' value={formData.description} onChange={handleChange} className='w-100'/>
               </div>
 
@@ -77,6 +96,13 @@ const ContributorForm = () => {
               </div>
               
               <button className='mb-4 btn btn-primary' type="submit" size='lg'>Upload</button>
+=======
+                <MDBInput label='Upload your file' id='form1' type='file' className='w-100'/>
+              </div>
+
+              
+              <button className='mb-4 btn btn-primary' size='lg'>Upload</button>
+>>>>>>> Stashed changes
 
             </MDBCol>
 
@@ -89,8 +115,15 @@ const ContributorForm = () => {
       </MDBCard>
 
     </MDBContainer>
+<<<<<<< Updated upstream
     </form>
   );
 };
 
 export default ContributorForm;
+=======
+  );
+}
+
+export default App;
+>>>>>>> Stashed changes
