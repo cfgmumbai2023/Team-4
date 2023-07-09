@@ -2,8 +2,8 @@ const Video=require('../models/Video');
 
 exports.createVideo=async(req,res)=>{
     try{
-        const {title,description,author,views,creator,url,length,tags,garde,subject,lang,chapter}=req.body;
-        console.log(title,description,author,views,creator,url,length,tags,garde,subject,lang,chapter);
+        const {title,description,author,views,creator,url,length,tags,grade,subject,lang,chapter}=req.body;
+        console.log(title,description,author,views,creator,url,length,tags,grade,subject,lang,chapter);
         const video=await Video.create({title,description,author,views,creator,url,length,tags,garde,subject,lang,chapter});
         res.status(200).json({
             success:true,
