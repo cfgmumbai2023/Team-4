@@ -1,13 +1,16 @@
-export const baseUrl = "http://localhost:5000/JEET";
+import axios from "axios";
 
-export const postRequest = async (url, body) => {
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body,
-    });
+export const baseUrl = "http://localhost:5000/jeet";
+
+export const postRequest = async (body) => {
+    // const response = await fetch("http://localhost:5000/jeet/creator/video/create", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body,
+    // });
+    const response=await axios.post("http://localhost:5000/jeet/creator/video/create",body);
 
     const data = await response.json();
 

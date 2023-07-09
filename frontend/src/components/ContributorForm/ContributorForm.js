@@ -21,7 +21,7 @@ const ContributorForm = () => {
     setFormData({...formData, [e.target.name]: e.target.value});
   }
 
-  const { registerUser} = useContext(AuthContext);
+  const  registerUser = useContext(AuthContext);
 
   return (
     <form onSubmit={registerUser}>
