@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 import React, {useState} from 'react';
-=======
-import React from 'react';
->>>>>>> Stashed changes
 import {
   MDBBtn,
   MDBContainer,
@@ -12,10 +8,12 @@ import {
   MDBCardBody,
   MDBCardImage,
   MDBInput,
-<<<<<<< Updated upstream
   MDBIcon
 }
 from 'mdb-react-ui-kit';
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
 
 const ContributorForm = () => {
   const [formData, setFormData] = useState({'title': '', 'description': '', 'url': '', 'author': '', 'tags': '', 'grade': '', 'subject': '','language':''});
@@ -23,22 +21,11 @@ const ContributorForm = () => {
     setFormData({...formData, [e.target.name]: e.target.value});
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  }
+  const { loginInfo, updateLoginInfo, loginUser, loginError, isLoginLoading } =
+    useContext(AuthContext);
 
   return (
-    <form onSubmit={handleSubmit}>
-=======
-  MDBIcon,
-  MDBCheckbox
-}
-from 'mdb-react-ui-kit';
-
-function App() {
-  return (
->>>>>>> Stashed changes
+    <form onSubmit={loginUser}>
     <MDBContainer fluid>
 
       <MDBCard className='text-black m-5' style={{borderRadius: '25px'}}>
@@ -50,16 +37,11 @@ function App() {
 
               <div className="d-flex flex-row align-items-center mb-4 ">
                 <MDBIcon fas icon="user me-3" size='lg'/>
-<<<<<<< Updated upstream
                 <MDBInput label='Title' name="title" type='text' value={formData.title} onChange={handleChange} className='w-100'/>
-=======
-                <MDBInput label='Your Name' id='form1' type='text' className='w-100'/>
->>>>>>> Stashed changes
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4 ">
                 <MDBIcon fas icon="user me-3" size='lg'/>
-<<<<<<< Updated upstream
                 <MDBInput label='Description' name="description" type='text' value={formData.description} onChange={handleChange} className='w-100'/>
               </div>
 
@@ -96,13 +78,6 @@ function App() {
               </div>
               
               <button className='mb-4 btn btn-primary' type="submit" size='lg'>Upload</button>
-=======
-                <MDBInput label='Upload your file' id='form1' type='file' className='w-100'/>
-              </div>
-
-              
-              <button className='mb-4 btn btn-primary' size='lg'>Upload</button>
->>>>>>> Stashed changes
 
             </MDBCol>
 
@@ -115,15 +90,8 @@ function App() {
       </MDBCard>
 
     </MDBContainer>
-<<<<<<< Updated upstream
     </form>
   );
 };
 
 export default ContributorForm;
-=======
-  );
-}
-
-export default App;
->>>>>>> Stashed changes
