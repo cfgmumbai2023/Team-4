@@ -1,6 +1,12 @@
-import React from 'react';
+
+import React, { useState } from "react";
+import jeetlogo from '../../images/JEETfinalLOGO.webp' 
+import "bootstrap/dist/css/bootstrap.css";
+import InputType from "../Navbar/InputType";
+import axios from 'axios';
 
 const YouTubeEmbed = ({ videoId }) => {
+
   return (
     <div>
       <iframe
@@ -16,9 +22,48 @@ const YouTubeEmbed = ({ videoId }) => {
 };
 
 const VideoList = ({ videos }) => {
+  const [search, setSearch] = useState("");
+  const [results,setResults]=useState([]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform search functionality or any other action
+    console.log("Search submitted:", search);
+    fetchData(search);
+  };
+  const fetchData=async(search)=>{
+    try{
+      console.log("hi",search);
+      const resp = await axios.get("http://localhost:5000/jeet/videos/search",{text: search});
+      console.log(resp);
+      setResults(resp);
+    }catch(error){
+      console.log("error in fetching serach results",error.message);
+    }
+  }
   return (
     <div className='my-3'>
-      {videos.map((video) => (
+            <form className="d-flex" onSubmit={handleSubmit}>
+            <InputType
+              labelText={"Search"}
+              labelFor={"forsearch"}
+              inputType={"text"}
+              name={"search"}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button className="btn btn-dark" type="submit">Search</button>
+          </form>
+          {/* {JSON.stringify(results.data)} */}
+          {
+         (results && results.data) ? results.data.videos.map((video)=>(
+        <div key={video.id}>
+          <h2>{video.title}</h2>
+          <YouTubeEmbed videoId={video.videoId} />
+          <p>{video.description}</p>
+          {/* Add other metadata fields */}
+        </div>
+      )):
+      videos.map((video) => (
         <div key={video.id}>
           <h2>{video.title}</h2>
           <YouTubeEmbed videoId={video.videoId} />
@@ -31,6 +76,7 @@ const VideoList = ({ videos }) => {
 };
 
 const App = () => {
+
   const videoData = 
   [
     {

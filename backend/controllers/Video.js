@@ -1,24 +1,32 @@
 const Video = require('../models/Video');
 
 exports.searchVideo = async (req, res) => {
-  const search = req.body.text;
-
-  //   if (!search)
-  //     return res.status(401).json({ success: false, message: 'Text is missing' });
-
-  const videos = await Video.find();
-  if (!search) {
-    return res.status(300).json({
-      success: true,
-      payload: videos,
-    });
-  }
-  const filtered_videos = videos.filter(vid => vid.title.toLowerCase().includes(search));
-
-  res.status(300).json({
-    success: true,
-    payload: filtered_videos,
-  });
+    try{
+        console.log("11223");
+        const search = req.body.text;
+        console.log("hi");
+        const videos = await Video.find();
+        if(!search){
+            return res.status(200).json({
+                videos:videos,
+            })
+        }
+        console.log("hi");
+        const filtered_videos = videos.filter(vid => vid.title.toLowerCase().includes(search));
+        return res.status(200).json({
+          success: true,
+          payload: filtered_videos,
+          data:"backend called",
+        });
+    }
+    catch(error){
+        res
+        .status(500)
+        .json({
+            success:false,
+            message:error.message,
+        })
+    }
 };
 
 exports.createVideo=async(req,res)=>{
